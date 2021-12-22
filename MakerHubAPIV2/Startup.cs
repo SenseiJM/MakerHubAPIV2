@@ -1,4 +1,6 @@
+using MakerhubAPIV2.BLL.Services;
 using MakerHubAPIV2.DAL;
+using MakerHubAPIV2.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,6 +37,12 @@ namespace MakerHubAPIV2 {
             }));
 
             services.AddDbContext<CTTDBContext>();
+
+            services.AddScoped<SouperService>();
+            services.AddScoped<SouperRepository>();
+
+            services.AddScoped<JoueurRepository>();
+            services.AddScoped<JoueurService>();
 
             services.AddScoped<HttpClient>(b => new HttpClient { BaseAddress = new Uri("http://localhost:3004") });
 
