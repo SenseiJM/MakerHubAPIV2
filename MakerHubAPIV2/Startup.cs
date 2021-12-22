@@ -47,6 +47,9 @@ namespace MakerHubAPIV2 {
             services.AddScoped<JoueurSouperRepository>();
             services.AddScoped<JoueurSouperService>();
 
+            services.AddScoped<StageRepository>();
+            services.AddScoped<StageService>();
+
             services.AddScoped<HttpClient>(b => new HttpClient { BaseAddress = new Uri("http://localhost:3004") });
 
         }

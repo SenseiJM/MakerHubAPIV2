@@ -8,6 +8,7 @@ namespace MakerHubAPIV2.DAL {
         public DbSet<Souper> Soupers { get; set; }
         public DbSet<Joueur> Joueurs { get; set; }
         public DbSet<JoueurSouper> JoueurSoupers { get; set; }
+        public DbSet<Stage> Stages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             optionsBuilder.UseSqlServer("server=SENSEI-LAPTOP\\SQLEXPRESS;database=CTTPhilippeville;integrated security=true;");
@@ -17,6 +18,7 @@ namespace MakerHubAPIV2.DAL {
             mb.ApplyConfiguration(new SouperConfig());
             mb.ApplyConfiguration(new JoueurConfig());
             mb.ApplyConfiguration(new JoueurSouperConfig());
+            mb.ApplyConfiguration(new StageConfig());
         }
 
     }
