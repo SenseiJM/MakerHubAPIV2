@@ -3,7 +3,7 @@
 namespace MakerHubAPIV2.DTO.Joueur {
     public class JoueurAddDTO {
 
-        public int IdAFTT { get; set; }
+        public int? IdAFTT { get; set; }
 
         [Required]
         public string Nom { get; set; }
