@@ -23,6 +23,8 @@ namespace MakerHubAPIV2.DTO.Souper {
 
         public string UrlPhoto { get; set; }
 
+        public string MimeType { get; set; }
+
         [Required]
         public int NombreMax { get; set; }
 

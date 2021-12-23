@@ -30,5 +30,15 @@ namespace MakerHubAPIV2.Controllers {
             return Ok(_souperService.GetAll().Select(s => s.ToIndexDTO()));
         }
 
+        [HttpGet("image/{id}")]
+        public IActionResult GetImage(int id) {
+            SouperDetailsDTO dto = _souperService.GetByID(id).ToDetailsDTO();
+            if (dto?.UrlPhoto is null) {
+                return NotFound();
+            }
+
+            return File(dto.UrlPhoto, "image/png");
+        }
+
     }
 }
