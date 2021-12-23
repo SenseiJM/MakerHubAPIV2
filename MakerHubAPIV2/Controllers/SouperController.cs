@@ -2,6 +2,7 @@
 using MakerHubAPIV2.DTO.Souper;
 using MakerHubAPIV2.Mappers;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace MakerHubAPIV2.Controllers {
@@ -17,6 +18,17 @@ namespace MakerHubAPIV2.Controllers {
 
         [HttpPost]
         public IActionResult Create(SouperAddDTO dto) {
+
+            if (dto.Blob != null) {
+                string fileExtension = dto.Blob.Split("/", 3)[1].Split(";")[0];
+                string base64String = dto.Blob.Split(",")[1];
+                byte[] base64 = Convert.FromBase64String(base64String);
+                Guid guid = Guid.NewGuid();
+                string filePath = "assets/images/" + guid.ToString() + "." + fileExtension;
+
+                System.IO.File.WriteAllBytes("wwwroot/" + filePath, base64);
+            }
+
             return Ok(_souperService.Create(dto.ToModel()));
         }
 
@@ -33,11 +45,11 @@ namespace MakerHubAPIV2.Controllers {
         [HttpGet("image/{id}")]
         public IActionResult GetImage(int id) {
             SouperDetailsDTO dto = _souperService.GetByID(id).ToDetailsDTO();
-            if (dto?.UrlPhoto is null) {
+            if (dto?.Photo is null) {
                 return NotFound();
             }
 
-            return File(dto.UrlPhoto, "image/png");
+            return File(dto.Photo, "image/png");
         }
 
     }

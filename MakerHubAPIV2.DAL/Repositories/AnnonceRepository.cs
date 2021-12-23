@@ -22,7 +22,7 @@ namespace MakerHubAPIV2.DAL.Repositories {
             if (old != null) {
                 old.Titre = a.Titre;
                 old.Description = a.Description;
-                old.UrlPhoto = a.UrlPhoto;
+                old.Photo = a.Photo;
                 _context.SaveChanges();
                 return true;
             }

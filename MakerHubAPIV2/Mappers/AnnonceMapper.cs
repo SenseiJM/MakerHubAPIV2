@@ -8,7 +8,7 @@ namespace MakerHubAPIV2.Mappers {
             return new AnnonceModel {
                 Description = dto.Description,
                 Titre = dto.Titre,
-                UrlPhoto = dto.UrlPhoto
+                Photo = dto.Photo
             };
         }
 
@@ -16,7 +16,7 @@ namespace MakerHubAPIV2.Mappers {
             return new AnnonceIndexDTO {
                 Id = model.Id,
                 Titre = model.Titre,
-                UrlPhoto = model.UrlPhoto
+                Photo = model.Photo
             };
         }
 
@@ -25,7 +25,7 @@ namespace MakerHubAPIV2.Mappers {
                 Description = model.Description,
                 Id = model.Id,
                 Titre = model.Titre,
-                UrlPhoto = model.UrlPhoto
+                Photo = model.Photo
             };
         }
 

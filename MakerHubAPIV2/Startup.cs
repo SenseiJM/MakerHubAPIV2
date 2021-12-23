@@ -50,6 +50,9 @@ namespace MakerHubAPIV2 {
             services.AddScoped<StageRepository>();
             services.AddScoped<StageService>();
 
+            services.AddScoped<AnnonceRepository>();
+            services.AddScoped<AnnonceService>();
+
             services.AddScoped<HttpClient>(b => new HttpClient { BaseAddress = new Uri("http://localhost:3004") });
 
         }

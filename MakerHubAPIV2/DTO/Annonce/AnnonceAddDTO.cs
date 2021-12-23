@@ -8,9 +8,11 @@ namespace MakerHubAPIV2.DTO.Annonce {
         [MaxLength(255)]
         public string Titre { get; set; }
 
-        //Taille de 2Mo
-        [MaxLength(2 * 1024 * 1024)]
-        public string UrlPhoto { get; set; }
+        public string Blob { get; set; }
+
+        ////Taille de 2Mo
+        //[MaxLength(2 * 1024 * 1024)]
+        public byte[] Photo { get; set; }
 
         [MimeTypeValidator("image/jpg", "image/jpeg", "image/svg", "image/png")]
         public string MimeType { get; set; }

@@ -10,7 +10,7 @@ namespace MakerhubAPIV2.BLL.Models {
         public decimal PrixAffilies { get; set; }
         public decimal PrixExternes { get; set; }
         public string Description { get; set; }
-        public string UrlPhoto { get; set; }
+        public byte[] Photo { get; set; }
         public int NombreMax { get; set; }
         public string Titre { get; set; }
 

@@ -13,7 +13,7 @@ namespace MakerHubAPIV2.Mappers {
                 PrixExternes = dto.PrixExternes,
                 Titre = dto.Titre,
                 TypeSouper = dto.TypeSouper,
-                UrlPhoto = dto.UrlPhoto
+                Photo = dto.Photo
             };
         }
 
@@ -27,7 +27,7 @@ namespace MakerHubAPIV2.Mappers {
                 PrixExternes = model.PrixExternes,
                 Titre = model.Titre,
                 TypeSouper = model.TypeSouper,
-                UrlPhoto = model.UrlPhoto
+                Photo = model.Photo
             };
         }
 
@@ -37,7 +37,7 @@ namespace MakerHubAPIV2.Mappers {
                 Id = model.Id,
                 Titre = model.Titre,
                 TypeSouper = model.TypeSouper,
-                UrlPhoto = model.UrlPhoto
+                Photo = model.Photo
             };
         }
 

@@ -1,5 +1,4 @@
-﻿using MakerhubAPIV2.BLL.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MakerHubAPIV2.DTO.Stage {

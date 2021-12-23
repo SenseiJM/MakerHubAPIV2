@@ -9,7 +9,7 @@ namespace MakerhubAPIV2.BLL.Mappers {
                 Description = model.Description,
                 Id = model.Id,
                 Titre = model.Titre,
-                UrlPhoto = model.UrlPhoto
+                Photo = model.Photo
             };
         }
 
@@ -17,7 +17,7 @@ namespace MakerhubAPIV2.BLL.Mappers {
             return new AnnonceModel {
                 Description = a.Description,
                 Titre = a.Titre,
-                UrlPhoto = a.UrlPhoto,
+                Photo = a.Photo,
                 Id = a.Id
             };
         }

@@ -3,7 +3,7 @@
 
         public int Id { get; set; }
         public string Titre { get; set; }
-        public string UrlPhoto { get; set; }
+        public byte[] Photo { get; set; }
 
     }
 }

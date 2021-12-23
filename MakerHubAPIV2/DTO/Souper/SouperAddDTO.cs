@@ -21,9 +21,10 @@ namespace MakerHubAPIV2.DTO.Souper {
         [MaxLength(1500)]
         public string Description { get; set; }
 
-        public string UrlPhoto { get; set; }
+        public byte[] Photo { get; set; }
 
         public string MimeType { get; set; }
+        public string Blob { get; set; }
 
         [Required]
         public int NombreMax { get; set; }

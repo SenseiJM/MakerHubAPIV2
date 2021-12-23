@@ -3,6 +3,7 @@ using MakerHubAPIV2.DTO.Annonce;
 using Microsoft.AspNetCore.Mvc;
 using MakerHubAPIV2.Mappers;
 using System.Linq;
+using System;
 
 namespace MakerHubAPIV2.Controllers {
     [Route("api/[controller]")]
@@ -17,6 +18,18 @@ namespace MakerHubAPIV2.Controllers {
 
         [HttpPost]
         public IActionResult Create(AnnonceAddDTO dto) {
+
+            if (dto.Blob != null) {
+                string fileExtension = dto.Blob.Split("/", 3)[1].Split(";")[0];
+                string base64String = dto.Blob.Split(",")[1];
+                byte[] base64 = Convert.FromBase64String(base64String);
+                Guid guid = Guid.NewGuid();
+                string filePath = "assets/images/" + guid.ToString() + "." + fileExtension;
+
+                System.IO.File.WriteAllBytes("wwwroot/" + filePath, base64);
+            }
+
+
             return Ok(_annonceService.Create(dto.ToModel()));
         }
 
@@ -38,6 +51,16 @@ namespace MakerHubAPIV2.Controllers {
         [HttpDelete]
         public IActionResult Delete(int id) {
             return Ok(_annonceService.Delete(id));
+        }
+
+        [HttpGet("image/{id}")]
+        public IActionResult GetImage(int id) {
+            AnnonceDetailsDTO dto = _annonceService.GetById(id).ToDetailsDTO();
+            if (dto?.Photo is null) {
+                return NotFound();
+            }
+
+            return File(dto.Photo, "image/png");
         }
 
     }

@@ -12,7 +12,7 @@ namespace MakerhubAPIV2.BLL.Mappers {
                 PrixAffilies = model.PrixAffilies,
                 PrixExternes = model.PrixExternes,
                 Titre = model.Titre,
-                UrlPhoto = model.UrlPhoto,
+                Photo = model.Photo,
                 TypeSouper = model.TypeSouper
             };
         }
@@ -27,7 +27,7 @@ namespace MakerhubAPIV2.BLL.Mappers {
                 PrixExternes = s.PrixExternes,
                 Titre = s.Titre,
                 TypeSouper = s.TypeSouper,
-                UrlPhoto = s.UrlPhoto
+                Photo = s.Photo
             };
         }
 

@@ -4,14 +4,16 @@ using MakerHubAPIV2.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MakerHubAPIV2.DAL.Migrations
 {
     [DbContext(typeof(CTTDBContext))]
-    partial class CTTDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211223121005_M3")]
+    partial class M3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,13 +33,13 @@ namespace MakerHubAPIV2.DAL.Migrations
                         .HasMaxLength(1500)
                         .HasColumnType("nvarchar(1500)");
 
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("Titre")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("UrlPhoto")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -131,9 +133,6 @@ namespace MakerHubAPIV2.DAL.Migrations
                     b.Property<int>("NombreMax")
                         .HasColumnType("int");
 
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<decimal>("PrixAffilies")
                         .HasColumnType("decimal(18,2)");
 
@@ -147,6 +146,9 @@ namespace MakerHubAPIV2.DAL.Migrations
 
                     b.Property<string>("TypeSouper")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlPhoto")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
