@@ -19,5 +19,21 @@ namespace MakerhubAPIV2.BLL.Mappers {
             };
         }
 
+        public static JoueurModel ToModel(this Joueur j) {
+            return new JoueurModel {
+                Email = j.Email,
+                Id = j.Id,
+                HeureDepartDames = j.HeureDepartDames,
+                HeureDepartHommes = j.HeureDepartHommes,
+                IdAFTT = j.IdAFTT,
+                IdentifiantConnexion = j.IdentifiantConnexion,
+                IdEquipeDames = j.IdEquipeDames,
+                IdEquipeHommes = j.IdEquipeHommes,
+                MotDePasse = j.MotDePasse,
+                Nom = j.Nom,
+                Prenom = j.Prenom
+            };
+        }
+
     }
 }

@@ -8,7 +8,8 @@ namespace MakerHubAPIV2.Mappers {
             return new JoueurSouperModel {
                 IdJoueur = dto.IdJoueur,
                 IdSouper = dto.IdSouper,
-                NbReservations = dto.NbReservations
+                NbReservations = dto.NbReservations,
+                Token = dto.Token
             };
         }
 

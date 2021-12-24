@@ -1,7 +1,6 @@
 ﻿using MakerhubAPIV2.BLL.Services;
 using MakerHubAPIV2.DTO.Joueur;
 using MakerHubAPIV2.Mappers;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakerHubAPIV2.Controllers {
@@ -18,6 +17,11 @@ namespace MakerHubAPIV2.Controllers {
         [HttpPost]
         public IActionResult Create(JoueurAddDTO dto) {
             return Ok(_joueurService.Create(dto.ToModel()));
+        }
+
+        [HttpGet("ByID/{id}")]
+        public IActionResult GetByID(int id) {
+            return Ok(_joueurService.GetByID(id).ToDetailsDTO());
         }
 
     }

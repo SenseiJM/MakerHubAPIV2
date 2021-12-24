@@ -12,5 +12,8 @@ namespace MakerHubAPIV2.DTO.JoueurSouper {
         [Required]
         public int NbReservations { get; set; }
 
+        [Required]
+        public string Token { get; set; }
+
     }
 }

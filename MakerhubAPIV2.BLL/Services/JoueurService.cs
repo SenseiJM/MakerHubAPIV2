@@ -15,5 +15,9 @@ namespace MakerhubAPIV2.BLL.Services {
             return _joueurRepository.Create(model.ToEntity());
         }
 
+        public JoueurModel GetByID(int id) {
+            return _joueurRepository.GetByID(id).ToModel();
+        }
+
     }
 }

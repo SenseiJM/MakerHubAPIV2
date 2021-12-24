@@ -22,7 +22,7 @@ namespace MakerhubAPIV2.BLL.Services {
         }
 
         public IEnumerable<SouperModel> GetAll() {
-            return _souperRepository.GetAll().Select(s => s.ToModel());
+            return _souperRepository.GetAll().Select(s => s.ToModel()).OrderByDescending(s => s.Date);
         }
 
     }

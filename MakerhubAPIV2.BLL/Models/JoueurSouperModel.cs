@@ -4,6 +4,7 @@
         public int IdSouper { get; set; }
         public int IdJoueur { get; set; }
         public int NbReservations { get; set; }
+        public string Token { get; set; }
 
     }
 }

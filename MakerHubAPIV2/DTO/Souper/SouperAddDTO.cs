@@ -1,4 +1,5 @@
 ﻿using MakerHubAPIV2.DAL.Enums;
+using MakerHubAPIV2.Validators;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -23,6 +24,7 @@ namespace MakerHubAPIV2.DTO.Souper {
 
         public byte[] Photo { get; set; }
 
+        [MimeTypeValidator("image/jpg", "image/jpeg", "image/svg", "image/png")]
         public string MimeType { get; set; }
         public string Blob { get; set; }
 

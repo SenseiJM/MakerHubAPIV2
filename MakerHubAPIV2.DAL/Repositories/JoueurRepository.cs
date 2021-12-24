@@ -1,4 +1,5 @@
 ﻿using MakerHubAPIV2.DAL.Entities;
+using System.Linq;
 
 namespace MakerHubAPIV2.DAL.Repositories {
     public class JoueurRepository {
@@ -13,6 +14,10 @@ namespace MakerHubAPIV2.DAL.Repositories {
             _context.Add(j);
             _context.SaveChanges();
             return j.Id;
+        }
+
+        public Joueur GetByID(int id) {
+            return _context.Joueurs.FirstOrDefault(j => j.Id == id);
         }
 
     }

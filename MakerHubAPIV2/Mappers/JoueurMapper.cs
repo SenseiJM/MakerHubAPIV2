@@ -19,5 +19,21 @@ namespace MakerHubAPIV2.Mappers {
             };
         }
 
+        public static JoueurDetailsDTO ToDetailsDTO(this JoueurModel model) {
+            return new JoueurDetailsDTO {
+                Email = model.Email,
+                HeureDepartDames = model.HeureDepartDames,
+                HeureDepartHommes = model.HeureDepartHommes,
+                Id = model.Id,
+                IdAFTT = model.IdAFTT,
+                IdentifiantConnexion = model.IdentifiantConnexion,
+                IdEquipeDames = model.IdEquipeDames,
+                IdEquipeHommes = model.IdEquipeHommes,
+                MotDePasse = model.MotDePasse,
+                Nom = model.Nom,
+                Prenom = model.Prenom
+            };
+        }
+
     }
 }
