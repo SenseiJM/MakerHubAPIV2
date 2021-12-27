@@ -52,5 +52,14 @@ namespace MakerHubAPIV2.Controllers {
             return File(dto.Photo, "image/png");
         }
 
+        [HttpPut]
+        public IActionResult Update(int id, SouperAddDTO dto) {
+            return Ok(_souperService.Update(dto.ToModel(), id));
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id) {
+            return Ok(_souperService.Delete(id));
+        }
     }
 }

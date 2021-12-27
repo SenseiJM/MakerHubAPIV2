@@ -25,5 +25,13 @@ namespace MakerhubAPIV2.BLL.Services {
             return _souperRepository.GetAll().Select(s => s.ToModel()).OrderByDescending(s => s.Date);
         }
 
+        public bool Update(SouperModel model, int id) {
+            return _souperRepository.Update(model.ToEntity(), id);
+        }
+
+        public bool Delete(int id) {
+            return _souperRepository.Delete(id);
+        }
+
     }
 }
