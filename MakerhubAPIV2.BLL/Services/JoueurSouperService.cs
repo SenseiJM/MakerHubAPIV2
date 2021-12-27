@@ -2,6 +2,8 @@
 using MakerhubAPIV2.BLL.Models;
 using MakerHubAPIV2.DAL.Repositories;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MakerhubAPIV2.BLL.Services {
     public class JoueurSouperService {
@@ -16,6 +18,7 @@ namespace MakerhubAPIV2.BLL.Services {
             _souperService = souperService;
         }
 
+        //Éviter les réservations passées
         public int CreateInscription(JoueurSouperModel model) {
             //Prévu que le token soit l'email. A Modifier dans les versions futures !
             if (model.Token != _joueurService.GetByID(model.IdJoueur).Email) {
@@ -27,6 +30,10 @@ namespace MakerhubAPIV2.BLL.Services {
             }
 
             return _joueurSouperRepository.CreateInscription(model.ToEntity());
+        }
+
+        public IEnumerable<JoueurSouperModel> GetBySouperID(int id) {
+            return _joueurSouperRepository.GetBySouperID(id).Select(js => js.ToModel(_joueurService.GetByID(js.Id).ToEntity()));
         }
 
     }

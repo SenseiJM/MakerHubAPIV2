@@ -13,5 +13,17 @@ namespace MakerHubAPIV2.Mappers {
             };
         }
 
+        public static JoueurSouperIndexDTO ToIndexDTO(this JoueurSouperModel model) {
+            return new JoueurSouperIndexDTO {
+                Id = model.IdJoueur,
+                IdJoueur = model.IdJoueur,
+                IdSouper = model.IdSouper,
+                Prenom = model.Prenom,
+                Nom = model.Nom,
+                Email = model.Email,
+                NbCommande = model.NbReservations
+            };
+        }
+
     }
 }

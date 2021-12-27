@@ -1,7 +1,10 @@
 ﻿using MakerhubAPIV2.BLL.Services;
+using MakerHubAPIV2.DTO.Joueur;
 using MakerHubAPIV2.DTO.JoueurSouper;
 using MakerHubAPIV2.Mappers;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MakerHubAPIV2.Controllers {
     [Route("api/[controller]")]
@@ -19,11 +22,16 @@ namespace MakerHubAPIV2.Controllers {
             return Ok(_joueurSouperService.CreateInscription(dto.ToModel()));
         }
 
+        [HttpGet("BySouperID/{id}")]
+        public IActionResult GetBySouperID(int id) {
+            return Ok(_joueurSouperService.GetBySouperID(id).Select(js => js.ToIndexDTO()));
+        }
+
         //Voir toutes les réservations d'un événement précis
 
         //Voir toutes les réservations d'un utilisateur
 
-        //Éviter les réservations passées
+        
 
         //Annuler une réservation
 

@@ -12,5 +12,16 @@ namespace MakerhubAPIV2.BLL.Mappers {
             };
         }
 
+        public static JoueurSouperModel ToModel(this JoueurSouper js, Joueur j) {
+            return new JoueurSouperModel {
+                IdJoueur = js.IdJoueur,
+                IdSouper = js.IdSouper,
+                NbReservations = js.NbReservations,
+                Email = j.Email,
+                Nom = j.Nom,
+                Prenom = j.Prenom
+            };
+        }
+
     }
 }
