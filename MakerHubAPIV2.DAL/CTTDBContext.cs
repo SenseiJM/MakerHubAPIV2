@@ -12,7 +12,8 @@ namespace MakerHubAPIV2.DAL {
         public DbSet<Annonce> Annonces { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseSqlServer("server=SENSEI-LAPTOP\\SQLEXPRESS;database=CTTPhilippeville;integrated security=true;MultipleActiveResultSets=True;");
+            //optionsBuilder.UseSqlServer("server=SENSEI-LAPTOP\\SQLEXPRESS;database=CTTPhilippeville;integrated security=true;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("server=SENSEI-ALICE-V1\\TB2019;database=CTTPhilippeville;integrated security=true;MultipleActiveResultSets=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder mb) {
