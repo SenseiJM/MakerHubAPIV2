@@ -20,15 +20,19 @@ namespace MakerhubAPIV2.BLL.Services {
 
         //Éviter les réservations passées
         public int CreateInscription(JoueurSouperModel model) {
+
+            JoueurModel j = _joueurService.GetByMail(model.Email);
+
             //Prévu que le token soit l'email. A Modifier dans les versions futures !
-            if (model.Token != _joueurService.GetByID(model.IdJoueur).Email) {
+            if (j is null) {
                 throw new ArgumentException("Wrong token");
             }
 
             if (_souperService.GetByID(model.IdSouper).Date <= DateTime.Now) {
                 throw new ArgumentException("Les inscriptions pour ce souper sont fermées");
             }
-
+            //ajouter idJoueur à model
+            model.IdJoueur = j.Id;
             return _joueurSouperRepository.CreateInscription(model.ToEntity());
         }
 

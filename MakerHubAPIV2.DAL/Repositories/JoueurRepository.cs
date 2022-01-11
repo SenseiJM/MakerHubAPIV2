@@ -20,5 +20,9 @@ namespace MakerHubAPIV2.DAL.Repositories {
             return _context.Joueurs.FirstOrDefault(j => j.Id == id);
         }
 
+        public Joueur GetByMail(string mail) {
+            return _context.Joueurs.FirstOrDefault(j => j.Email == mail);
+        }
+
     }
 }

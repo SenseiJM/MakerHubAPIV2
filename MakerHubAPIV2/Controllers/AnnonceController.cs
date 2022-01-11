@@ -43,7 +43,7 @@ namespace MakerHubAPIV2.Controllers {
             return Ok(_annonceService.GetById(id).ToDetailsDTO());
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, AnnonceAddDTO dto) {
             return Ok(_annonceService.Update(dto.ToModel(), id));
         }

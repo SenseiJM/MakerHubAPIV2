@@ -7,9 +7,6 @@ namespace MakerHubAPIV2.DTO.JoueurSouper {
         public int IdSouper { get; set; }
 
         [Required]
-        public int IdJoueur { get; set; }
-
-        [Required]
         public int NbReservations { get; set; }
 
         [Required]

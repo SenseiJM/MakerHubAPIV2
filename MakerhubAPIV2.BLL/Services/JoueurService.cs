@@ -19,5 +19,9 @@ namespace MakerhubAPIV2.BLL.Services {
             return _joueurRepository.GetByID(id).ToModel();
         }
 
+        public JoueurModel GetByMail(string mail) {
+            return _joueurRepository.GetByMail(mail).ToModel();
+        }
+
     }
 }
