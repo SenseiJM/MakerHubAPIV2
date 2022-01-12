@@ -20,7 +20,7 @@ namespace MakerhubAPIV2.BLL.Services {
         }
 
         public JoueurModel GetByMail(string mail) {
-            return _joueurRepository.GetByMail(mail).ToModel();
+            return _joueurRepository.GetByMail(mail)?.ToModel();
         }
 
     }

@@ -38,6 +38,7 @@ namespace MakerHubAPIV2.DAL.Repositories {
                 old.PrixExternes = souper.PrixExternes;
                 old.PrixAffilies = souper.PrixAffilies;
                 old.Photo = souper.Photo;
+                _context.SaveChanges();
                 return true;
             }
             return false;

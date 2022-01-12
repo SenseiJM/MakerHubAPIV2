@@ -18,7 +18,6 @@ namespace MakerhubAPIV2.BLL.Services {
             _souperService = souperService;
         }
 
-        //Éviter les réservations passées
         public int CreateInscription(JoueurSouperModel model) {
 
             JoueurModel j = _joueurService.GetByMail(model.Email);
@@ -28,6 +27,7 @@ namespace MakerhubAPIV2.BLL.Services {
                 throw new ArgumentException("Wrong token");
             }
 
+            //Éviter les réservations à des soupers déjà terminés
             if (_souperService.GetByID(model.IdSouper).Date <= DateTime.Now) {
                 throw new ArgumentException("Les inscriptions pour ce souper sont fermées");
             }
@@ -39,6 +39,18 @@ namespace MakerhubAPIV2.BLL.Services {
         public IEnumerable<JoueurSouperModel> GetBySouperID(int id) {
             return _joueurSouperRepository.GetBySouperID(id).Select(js => js.ToModel(_joueurService.GetByID(js.Id).ToEntity()));
         }
+
+        //Si je supprime un souper, qu'est-ce qu'il se passe ? -> Delete en cascade
+
+        //Si modifie un souper, est-ce que je préviens les inscrits ? OUI. Comment ? MAIL
+
+        //Si je supprime un joueur, que faire de l'inscription -> Supprime l'inscription
+
+        //Qui modifie le souper ? -> User + Admin
+
+        //Si je suis complet, et que quelq'un veut rajouter un souper ?
+
+        // 
 
     }
 }
